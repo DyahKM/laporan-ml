@@ -1,61 +1,61 @@
 # Laporan Proyek Machine Learning - Dyah Kumalarani Mahakerty
 
 ## Domain Proyek
-Diabetes adalah salah satu penyakit kronis yang prevalensinya terus meningkat di seluruh dunia. Menurut Organisasi Kesehatan Dunia (WHO), diabetes merupakan penyebab utama morbiditas dan mortalitas, dengan estimasi sekitar 422 juta orang di seluruh dunia menderita diabetes pada tahun 2014, dan angka ini terus meningkat setiap tahunnya(WHO,2016). Diabetes dapat menyebabkan berbagai komplikasi serius, termasuk penyakit kardiovaskular, kerusakan saraf, gagal ginjal, dan amputasi anggota tubuh. Biaya ekonomi yang terkait dengan diabetes juga sangat besar, terutama di negara maju seperti Amerika Serikat, di mana total biaya yang diakibatkan oleh diabetes diperkirakan mencapai $327 miliar pada tahun 2017 (American Diabetes Association,2018). Oleh karena itu, deteksi dini dan pengelolaan diabetes yang efektif sangat penting untuk mengurangi beban kesehatan masyarakat.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-Mengapa dan bagaimana masalah tersebut harus diselesaikan? Deteksi dini diabetes memungkinkan intervensi medis dan perubahan gaya hidup yang dapat memperlambat atau bahkan mencegah perkembangan komplikasi serius. Namun, metode konvensional untuk diagnosis diabetes biasanya memerlukan tes laboratorium yang mungkin tidak selalu tersedia, terutama di daerah terpencil atau di negara berkembang dengan sumber daya terbatas. Oleh karena itu, diperlukan solusi yang lebih cepat dan lebih mudah diakses yaitu melalui pengembangan sistem prediksi berbasis machine learning yang dapat mendeteksi risiko diabetes pada tahap awal dengan menggunakan karakteristik kesehatan individu. Sistem ini dirancang untuk memberikan prediksi yang cepat dan akurat mengenai kemungkinan seseorang menderita diabetes, tanpa memerlukan tes laboratorium yang kompleks dan mahal sehingga memungkinkan intervensi medis yang lebih dini dan pengelolaan yang lebih baik untuk mencegah komplikasi serius.
+Diabetes adalah salah satu penyakit kronis yang prevalensinya terus meningkat di seluruh dunia. Menurut Organisasi Kesehatan Dunia (WHO), diabetes merupakan penyebab utama morbiditas dan mortalitas, dengan estimasi sekitar 422 juta orang di seluruh dunia menderita diabetes pada tahun 2014, dan angka ini terus meningkat setiap tahunnya (WHO,2016). Diabetes dapat menyebabkan berbagai komplikasi serius, termasuk penyakit kardiovaskular, kerusakan saraf, gagal ginjal, dan amputasi anggota tubuh. Biaya ekonomi yang terkait dengan diabetes juga sangat besar, terutama di negara maju seperti Amerika Serikat, di mana total biaya yang diakibatkan oleh diabetes diperkirakan mencapai $327 miliar pada tahun 2017 (American Diabetes Association,2018). Oleh karena itu, deteksi dini dan pengelolaan diabetes yang efektif sangat penting untuk mengurangi beban kesehatan masyarakat sehingga diperlukan solusi yang lebih cepat dan lebih mudah diakses yaitu melalui pengembangan sistem prediksi berbasis machine learning yang dapat mendeteksi risiko diabetes pada tahap awal dengan menggunakan karakteristik kesehatan individu. Sistem ini dirancang untuk memberikan prediksi yang cepat dan akurat mengenai kemungkinan seseorang menderita diabetes sehingga membantu Decision Support selanjutnya, bagaimana gaya hidupnya, dan sebagainya. 
 
 Referensi: 
 World Health Organization. (2016). Global report on diabetes. World Health Organization. Retrieved from WHO.
 American Diabetes Association. (2018). Economic costs of diabetes in the U.S. in 2017. Diabetes Care, 41(5), 917-928. Retrieved from ADA.
 
+
 ## Business Understanding
-
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
 ### Problem Statements
-Adapun beberapa beberapa masalah yang diangkat adalah sebagai berikut
-- Pernyataan Masalah 1:
-Diabetes merupakan penyakit kronis yang prevalensinya terus meningkat dan dapat menyebabkan berbagai komplikasi serius jika tidak terdeteksi dan ditangani sejak dini. Metode konvensional untuk diagnosis diabetes biasanya memerlukan tes laboratorium yang mungkin tidak selalu tersedia, terutama di daerah terpencil atau negara berkembang dengan sumber daya terbatas.
+Adapun beberapa masalah yang diangkat adalah sebagai berikut:
 
-- Pernyataan Masalah 2:
-Tingginya biaya ekonomi yang terkait dengan diabetes, termasuk biaya perawatan kesehatan dan produktivitas yang hilang, memerlukan solusi yang lebih efisien untuk mengurangi beban ekonomi ini.
+1. Deteksi Dini Diabetes
+Diabetes merupakan penyakit kronis yang prevalensinya terus meningkat dan dapat menyebabkan berbagai komplikasi serius jika tidak terdeteksi dan ditangani sejak dini. Pendekatan konvensional untuk diagnosis diabetes biasanya memerlukan tes laboratorium yang mahal dan tidak selalu tersedia, terutama di daerah terpencil atau negara berkembang dengan sumber daya terbatas.
 
-- Pernyataan Masalah 3:
-Data medis yang tersedia sering kali tidak dimanfaatkan secara optimal untuk tujuan prediksi dan pencegahan, padahal data ini memiliki potensi besar untuk membantu dalam deteksi dini dan manajemen diabetes.
+2. Optimalisasi Penggunaan Data Medis
+Data medis yang tersedia sering kali tidak dimanfaatkan secara optimal untuk tujuan prediksi dan pencegahan. Padahal, data ini memiliki potensi besar untuk membantu dalam deteksi dini dan manajemen diabetes melalui model prediktif yang akurat.
+
+3. Pendukung Keputusan Klinis
+Kebutuhan akan alat bantu yang dapat mendukung pengambilan keputusan klinis yang lebih cepat dan tepat sangat penting untuk meningkatkan kualitas perawatan pasien dan memungkinkan intervensi dini yang lebih efektif dalam mengelola risiko diabetes.
 
 
 ### Goals
 Adapun goals yang ingin dicapai yaitu sebagai berikut 
-1. Mengembangkan model prediktif berbasis machine learning yang dapat memprediksi risiko diabetes berdasarkan karakteristik kesehatan individu, sehingga memungkinkan deteksi dini tanpa memerlukan tes laboratorium yang mahal dan tidak selalu tersedia.
-2. Mengurangi biaya ekonomi yang terkait dengan diabetes dengan menyediakan alat prediksi yang murah dan mudah diakses, yang dapat membantu dalam pengambilan keputusan klinis dan intervensi dini.
-3. Jawaban Pernyataan Masalah 3:
-Memanfaatkan data medis yang ada untuk membangun model prediktif yang andal, yang dapat memberikan wawasan berharga tentang faktor risiko dan membantu dalam pencegahan serta pengelolaan diabetes.
+1. Membangun Model Prediktif
+Mengembangkan model prediktif berbasis machine learning yang akurat dan andal untuk memprediksi risiko diabetes berdasarkan karakteristik kesehatan individu, seperti kadar glukosa darah, tekanan darah, ketebalan kulit, kadar insulin, dan indeks massa tubuh (BMI).
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
+2. Mendukung Pengambilan Keputusan Klinis
+Menyediakan alat bantu bagi tenaga medis untuk pengambilan keputusan klinis yang lebih cepat dan tepat, sehingga dapat meningkatkan kualitas perawatan pasien dan memungkinkan intervensi dini yang lebih efektif dalam mengelola risiko diabetes.
+
+3. Memanfaatkan Data Medis
+Mengoptimalkan penggunaan data medis yang mudah diakses dan diukur untuk membangun sistem pendukung keputusan yang efisien, yang dapat memberikan wawasan berharga mengenai faktor risiko dan membantu dalam pencegahan serta pengelolaan diabetes.
+
+
 ### Solution statements
-- Solution Statement 1:
+Untuk mencapai tujuan tersebut, beberapa solusi yang diusulkan adalah:
+
+1. Penggunaan Algoritma Machine Learning
 Menggunakan beberapa algoritma machine learning untuk membangun model prediktif, termasuk:
-Linear Regression: LinearRegression()
-Lasso: Lasso()
-Ridge: Ridge()
-k-Neighbors Regression: KNeighborsRegressor()
-Decision Tree: DecisionTreeRegressor()
-Random Forest Regressor: RandomForestRegressor(n_estimators=100, random_state=0)
-AdaBoost Regressor: AdaBoostRegressor()
-XGBRegressor: XGBRegressor()
+Logistic Regression
+k-Neighbors Classifier
+Decision Tree Classifier
+Random Forest Classifier
+AdaBoost Classifier
+XGBClassifier
 
-- Solution Statement 2:
-Melakukan evaluasi model menggunakan metrik performa seperti Mean Squared Error (MSE), Mean Absolute Error (MAE), dan Root Mean Squared Error (RMSE) untuk memastikan akurasi dan keandalan prediksi.
+2. Evaluasi Model
+Melakukan evaluasi model menggunakan metrik performa seperti precision, recall, f1-score, dan akurasi untuk memastikan akurasi dan keandalan prediksi.
 
-- Solution Statement 3:
+3. Peningkatan Model
 Melakukan improvement pada baseline model melalui hyperparameter tuning dan teknik lain seperti feature selection dan engineering untuk meningkatkan akurasi dan keandalan prediksi. Selain itu, melakukan validasi silang (cross-validation) untuk memastikan model tidak overfitting dan dapat digeneralisasi dengan baik pada data baru.
 
 Dengan pendekatan ini, diharapkan dapat mengembangkan model prediktif yang efektif dalam mendeteksi risiko diabetes, sehingga dapat membantu dalam intervensi dini dan pengelolaan penyakit yang lebih baik.
 
 ## Data Understanding
-Dataset ini berasal dari National Institute of Diabetes and Digestive and Kidney Diseases. Tujuan dari dataset ini adalah untuk memprediksi secara diagnostik apakah seorang pasien memiliki diabetes, berdasarkan pengukuran diagnostik tertentu yang termasuk dalam dataset. Beberapa batasan diberlakukan pada pemilihan data ini dari database yang lebih besar. Secara khusus, semua pasien di sini adalah perempuan berusia setidaknya 21 tahun dari keturunan Indian Pima. 
+Dataset ini berasal dari National Institute of Diabetes and Digestive and Kidney Diseases. Tujuan dari dataset ini adalah untuk memprediksi secara diagnostik apakah seorang pasien memiliki diabetes, berdasarkan pengukuran diagnostik tertentu yang termasuk dalam dataset. Beberapa batasan diberlakukan pada pemilihan data ini dari database yang lebih besar. Secara khusus, semua pasien di sini adalah perempuan berusia setidaknya 21 tahun dari keturunan Indian Pima. Dataset ini berjumlah 768 data.
 
 Dataset dapat diunduh di : https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset/data 
 
@@ -70,7 +70,7 @@ Dataset dapat diunduh di : https://www.kaggle.com/datasets/akshaydattatraykhare/
 - Age: Usia (tahun)
 - Outcome: Hasil diagnosis diabetes (1 jika positif diabetes, 0 jika negatif)
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
+
 Exploratory Data Analysis (EDA)
 Untuk memahami data lebih lanjut, beberapa tahapan eksplorasi data dan visualisasi akan dilakukan, antara lain:
 - Statistik Deskriptif: 
@@ -124,10 +124,16 @@ Menghitung jumlah nilai yang hilang untuk setiap variabel.
 Memutuskan strategi penanganan nilai yang hilang, seperti imputasi menggunakan mean atau median, atau menghapus baris data yang memiliki nilai yang hilang tergantung pada distribusi data dan signifikansinya terhadap analisis.
 
 3. Pemeriksaan Data Duplikat:
-Melakukan pemeriksaan terhadap adanya data duplikat dalam dataset. Data duplikat dapat mempengaruhi hasil analisis statistik dan model machine learning dengan cara yang tidak diinginkan. Dan pada data ini tidak ditemukan data duplikat. MinMaxScaler dari sklearn digunakan untuk melakukan scaling data. Teknik ini mengubah nilai data sehingga berada dalam rentang tertentu, biasanya 0 hingga 1.
+Melakukan pemeriksaan terhadap adanya data duplikat dalam dataset. Data duplikat dapat mempengaruhi hasil analisis statistik dan model machine learning dengan cara yang tidak diinginkan. Dan pada data ini tidak ditemukan data duplikat. 
 
 4. Data Scaling 
 Scaling atau normalisasi data dilakukan untuk memastikan bahwa semua variabel numerikal memiliki skala yang sama. Hal ini penting dalam proses pemodelan machine learning, terutama untuk algoritma yang sensitif terhadap skala data, seperti regresi linier, k-NN, dan neural networks. Pada Data ini digunakan MinMaxScaler dari sklearn digunakan untuk melakukan scaling data. Teknik ini mengubah nilai data sehingga berada dalam rentang tertentu, biasanya 0 hingga 1.
+
+5. Melakukan Split Train dan Test
+Selanjutnya membagi dataset menjadi set pelatihan dan set pengujian. Pembagian ini dilakukan dengan rasio 85:15, di mana 85% data digunakan untuk pelatihan model dan 15% digunakan untuk pengujian model. Berikut adalah kode untuk pembagian data:
+```sh
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.15, shuffle=True, random_state=42)
+```
 
 Alasan Data Preparation
 - Analisis Variabel Kategorikal dan Numerikal: Memastikan pemahaman yang jelas tentang jenis data yang tersedia untuk mempersiapkan langkah-langkah preprocessing selanjutnya dengan tepat.
@@ -137,6 +143,8 @@ Alasan Data Preparation
 - Pemeriksaan Data Duplikat: Memastikan keakuratan analisis dan model yang dibangun dengan menghilangkan pengaruh data yang tidak diperlukan.
 
 - Data Scaling : Menghindari Bias: Scaling mencegah fitur dengan skala yang lebih besar mendominasi dalam proses pembelajaran model.
+
+- Melakukan Split Train dan Test : Validasi model pada data baru, identifikasi overfitting dan underfitting, dan pengukuran Kinerja yang Akurat. 
 
 Dengan menerapkan tahapan-tahapan ini, dataset dapat disiapkan dengan baik untuk tahap selanjutnya dalam membangun model prediktif untuk diabetes.
 
@@ -149,41 +157,48 @@ Random Forest Classifier
 AdaBoost Classifier
 XGBoost Classifier
 
-1. **Melakukan Split Train dan Test**
-Langkah pertama dalam pemodelan adalah membagi dataset menjadi set pelatihan dan set pengujian. Pembagian ini dilakukan dengan rasio 85:15, di mana 85% data digunakan untuk pelatihan model dan 15% digunakan untuk pengujian model. Berikut adalah kode untuk pembagian data:
-```sh
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.15, shuffle=True, random_state=42)
-```
-2. **Model Building**
+**Model Building**
 Berikut adalah beberapa model machine learning yang digunakan untuk membangun model prediktif diabetes:
 
 Kelebihan dan Kekurangan Model
 1. Logistic Regression:
+Cara Kerja: Logistic Regression menggunakan fungsi logistik untuk memodelkan probabilitas suatu kejadian berdasarkan regresi linear. Ini sangat efektif untuk masalah klasifikasi biner.
+Library yang Digunakan: sklearn.linear_model
 Kelebihan: Sederhana dan mudah diinterpretasikan, bekerja dengan baik ketika hubungan antara fitur dan target adalah linear.
 Kekurangan: Tidak mampu menangkap hubungan non-linear antara fitur dan target.
 
 2. K-Neighbors Classifier:
+Cara Kerja: K-Neighbors Classifier (KNN) menentukan kelas dari titik data baru berdasarkan mayoritas kelas dari k tetangga terdekat dalam ruang fitur.
+Library yang Digunakan: sklearn.neighbors
 Kelebihan: Mudah diimplementasikan, non-parametrik dan non-linear.
 Kekurangan: Membutuhkan banyak memori dan waktu komputasi untuk dataset besar, performa menurun dengan fitur yang banyak (curse of dimensionality).
 
 3. Decision Tree Classifier:
+Cara Kerja: Decision Tree mempartisi ruang fitur menjadi daerah yang memiliki label yang sama dengan membuat pohon keputusan dari fitur-fitur yang membagi data dengan cara yang paling informatif.
+Library yang Digunakan: sklearn.tree
 Kelebihan: Mudah diinterpretasikan, mampu menangkap hubungan non-linear, tidak membutuhkan banyak pra-pemrosesan data.
 Kekurangan: Rentan terhadap overfitting, terutama pada dataset yang kecil.
 
 4. Random Forest Classifier:
+Cara Kerja: Random Forest membangun banyak pohon keputusan (decision trees) dan menggabungkan hasilnya untuk meningkatkan akurasi dan mengurangi overfitting.
+Library yang Digunakan: sklearn.ensemble
 Kelebihan: Mengurangi overfitting, mampu menangani dataset dengan fitur yang banyak, robust terhadap missing values.
 Kekurangan: Lebih kompleks dan membutuhkan lebih banyak waktu komputasi dibanding decision tree.
 
 5. AdaBoost Classifier:
+Cara Kerja: AdaBoost menggabungkan beberapa model lemah (misalnya, pohon keputusan sederhana) dengan memberi bobot lebih pada kesalahan dari model sebelumnya untuk meningkatkan akurasi keseluruhan.
+Library yang Digunakan: sklearn.ensemble
 Kelebihan: Meningkatkan performa model dasar dengan menggabungkan beberapa model lemah, robust terhadap overfitting.
 Kekurangan: Rentan terhadap data outliers dan noise.
 
 6. XGBoost Classifier:
+Cara Kerja: XGBoost adalah algoritma boosting yang dioptimalkan untuk efisiensi dan kecepatan. Ini bekerja dengan membangun model secara iteratif dan memperbaiki kesalahan dari model sebelumnya.
+Library yang Digunakan: xgboost
 Kelebihan: Sangat efisien dan cepat, menangani missing values dengan baik, sering memberikan hasil terbaik dalam kompetisi.
 Kekurangan: Lebih kompleks untuk diimplementasikan dan disetel (tuning) dibandingkan model lain.
 
 
-3. **Mencari Model yang terbaik menggunakan Matrik Evaluation**
+**Mencari Model yang terbaik menggunakan Matrik Evaluation**
 Matrik Evaluasi akan dijelaskan lebih jauh dibawah, untuk hasil dari matrik evaluasi ternyata model yang terbaik yang cocok dengan Diabetes. 
 Berikut ini tabel perbandingan hasil dari setiap model 
 
@@ -261,35 +276,52 @@ Berdasarkan hasil klasifikasi dari beberapa model, berikut adalah hasil evaluasi
    - Untuk kelas 0.0 (non-diabetes), F1-score sebesar 0.83 menunjukkan keseimbangan yang baik antara precision dan recall.
    - Untuk kelas 1.0 (diabetes), F1-score sebesar 0.64 menunjukkan bahwa ada ruang untuk perbaikan dalam menyeimbangkan precision dan recall.
 
-## Evaluasi Model dan Dampaknya terhadap Business Understanding
+### Evaluasi Model dan Dampaknya terhadap Business Understanding
+
 Setelah melalui tahap evaluasi model machine learning dengan menggunakan metrik akurasi, precision, recall, dan F1 score, berikut adalah analisis dampak model terhadap pemahaman bisnis yang telah ditetapkan.
 
 1. Apakah Model Sudah Menjawab Problem Statement?
-Problem statement yang diidentifikasi adalah perlunya deteksi dini diabetes yang cepat, murah, dan dapat diakses tanpa memerlukan tes laboratorium yang mahal dan tidak selalu tersedia. Berdasarkan hasil evaluasi model, beberapa model seperti Logistic Regression dan k-Neighbors Classifier menunjukkan hasil yang cukup baik dengan akurasi masing-masing 77% dan 72%. Precision, recall, dan F1 score yang dihasilkan oleh model-model ini juga menunjukkan bahwa model dapat mengidentifikasi pasien yang berisiko diabetes dengan cukup baik.
+- Deteksi Dini Diabetes
+Problem Statement: Perlunya deteksi dini diabetes yang cepat, murah, dan dapat diakses tanpa memerlukan tes laboratorium yang mahal dan tidak selalu tersedia.
+Hasil Evaluasi: Berdasarkan hasil evaluasi, model Logistic Regression menunjukkan akurasi sebesar 77%, sementara k-Neighbors Classifier menunjukkan akurasi 72%. Model ini menunjukkan kemampuan yang baik dalam mengidentifikasi pasien yang berisiko diabetes, sehingga dapat membantu dalam deteksi dini tanpa memerlukan tes laboratorium yang mahal.
+
+- Optimalisasi Penggunaan Data Medis
+Problem Statement: Data medis yang tersedia sering kali tidak dimanfaatkan secara optimal untuk tujuan prediksi dan pencegahan diabetes.
+Hasil Evaluasi: Model prediktif yang dibangun memanfaatkan data medis yang ada secara efektif untuk memprediksi risiko diabetes. Hasil evaluasi menunjukkan bahwa model ini dapat memberikan wawasan berharga mengenai faktor risiko diabetes, yang dapat digunakan untuk tujuan prediksi dan pencegahan.
+
+- Pendukung Keputusan Klinis
+Problem Statement: Kebutuhan akan alat bantu yang dapat mendukung pengambilan keputusan klinis yang lebih cepat dan tepat.
+Hasil Evaluasi: Model prediktif ini dapat digunakan sebagai alat bantu bagi tenaga medis dalam pengambilan keputusan klinis yang lebih cepat dan tepat. Dengan akurasi yang cukup tinggi, model ini dapat diandalkan untuk memberikan rekomendasi berbasis data.
 
 2. Apakah Model Berhasil Mencapai Goals yang Diharapkan?
-Goals yang telah ditetapkan adalah mengembangkan model prediktif yang dapat memprediksi risiko diabetes, mengurangi biaya ekonomi terkait diabetes, dan memanfaatkan data medis yang ada untuk membangun model yang andal. Berdasarkan hasil evaluasi model:
-- Deteksi Dini: Model yang dikembangkan telah menunjukkan kemampuan untuk memprediksi risiko diabetes berdasarkan karakteristik kesehatan individu. Hal ini memungkinkan deteksi dini tanpa memerlukan tes laboratorium.
-- Pengurangan Biaya: Dengan adanya model prediktif yang dapat digunakan sebagai alat bantu diagnosis, biaya yang dikeluarkan untuk tes laboratorium dapat dikurangi. Ini memberikan solusi yang lebih murah dan dapat diakses.
-- Pemanfaatan Data Medis: Data medis yang tersedia telah dimanfaatkan untuk membangun model prediktif yang andal. Model yang dihasilkan memberikan wawasan tentang faktor risiko diabetes dan membantu dalam pengambilan keputusan klinis.
+- Membangun Model Prediktif
+Goal: Mengembangkan model prediktif berbasis machine learning yang akurat dan andal untuk memprediksi risiko diabetes.
+Hasil Evaluasi: Model Logistic Regression memberikan performa terbaik dengan akurasi 77%, menunjukkan bahwa model ini dapat memprediksi risiko diabetes dengan baik.
+
+- Mendukung Pengambilan Keputusan Klinis
+Goal: Menyediakan alat bantu bagi tenaga medis untuk pengambilan keputusan klinis yang lebih cepat dan tepat.
+Hasil Evaluasi: Dengan precision, recall, dan F1 score yang cukup baik, model ini dapat diandalkan untuk mendukung pengambilan keputusan klinis, membantu tenaga medis dalam mengidentifikasi pasien yang berisiko diabetes dengan lebih cepat dan tepat.
+
+- Memanfaatkan Data Medis
+Goal: Mengoptimalkan penggunaan data medis untuk membangun sistem pendukung keputusan yang efisien.
+Hasil Evaluasi: Data medis yang tersedia telah dimanfaatkan secara optimal untuk membangun model prediktif yang andal. Model ini memberikan wawasan mengenai faktor risiko diabetes dan membantu dalam pencegahan serta pengelolaan diabetes.
 
 3. Apakah Solusi yang Direncanakan Berdampak?
-Solusi yang direncanakan, yaitu pengembangan model prediktif berbasis machine learning, telah memberikan dampak yang signifikan dalam konteks business understanding:
-- Efisiensi dan Aksesibilitas: Dengan adanya model prediktif, proses deteksi dini diabetes menjadi lebih efisien dan dapat diakses oleh lebih banyak orang, terutama di daerah terpencil atau negara berkembang dengan sumber daya terbatas.
-- Peningkatan Kesehatan Masyarakat: Deteksi dini yang cepat dan murah memungkinkan intervensi medis dan perubahan gaya hidup yang lebih dini, yang dapat memperlambat atau mencegah perkembangan komplikasi serius terkait diabetes.
-- Penghematan Biaya: Dengan mengurangi ketergantungan pada tes laboratorium yang mahal, model prediktif ini membantu mengurangi biaya ekonomi yang terkait dengan pengelolaan diabetes.
+- Penggunaan Algoritma Machine Learning
+Solusi: Menggunakan beberapa algoritma machine learning untuk membangun model prediktif.
+Dampak: Evaluasi menunjukkan bahwa algoritma Logistic Regression memberikan performa terbaik, diikuti oleh k-Neighbors Classifier. Ini menunjukkan bahwa penggunaan algoritma machine learning efektif dalam membangun model prediktif untuk deteksi dini diabetes.
 
+- Evaluasi Model
+Solusi: Melakukan evaluasi model menggunakan metrik performa.
+Dampak: Evaluasi model menunjukkan bahwa Logistic Regression memiliki performa terbaik dengan akurasi 77%, yang menunjukkan bahwa model ini andal dan akurat dalam memprediksi risiko diabetes.
+
+- Peningkatan Model
+Solusi: Melakukan improvement pada baseline model melalui hyperparameter tuning dan teknik lain seperti feature selection dan engineering.
+Dampak: Model Logistic Regression telah di-tuning untuk mencapai performa terbaiknya. Cross-validation juga dilakukan untuk memastikan model tidak overfitting dan dapat digeneralisasi dengan baik pada data baru.
 
 ### Kesimpulan
 
 Model Logistic Regression menunjukkan kinerja yang baik dalam memprediksi apakah seseorang memiliki diabetes, dengan akurasi yang tinggi dan nilai precision dan recall yang memuaskan. Namun, ada ruang untuk perbaikan terutama dalam meningkatkan recall untuk kelas diabetes, yang akan membantu dalam menangkap lebih banyak kasus diabetes yang sebenarnya.
 
 Pemilihan metrik evaluasi ini membantu dalam memahami kekuatan dan kelemahan model dalam berbagai aspek, dan memberikan dasar yang kuat untuk pengambilan keputusan lebih lanjut dalam pengembangan dan penyempurnaan model prediksi diabetes.
-
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
 
