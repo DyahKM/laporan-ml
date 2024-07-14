@@ -13,7 +13,7 @@ American Diabetes Association. (2018). Economic costs of diabetes in the U.S. in
 Adapun beberapa masalah yang diangkat adalah sebagai berikut:
 
 1. Deteksi Dini Diabetes
-Diabetes merupakan penyakit kronis yang prevalensinya terus meningkat dan dapat menyebabkan berbagai komplikasi serius jika tidak terdeteksi dan ditangani sejak dini. Pendekatan konvensional untuk diagnosis diabetes biasanya memerlukan tes laboratorium yang mahal dan tidak selalu tersedia, terutama di daerah terpencil atau negara berkembang dengan sumber daya terbatas.
+Diabetes merupakan penyakit kronis yang prevalensinya terus meningkat dan dapat menyebabkan berbagai komplikasi serius jika tidak terdeteksi dan ditangani sejak dini sebagai Decision Support. 
 
 2. Optimalisasi Penggunaan Data Medis
 Data medis yang tersedia sering kali tidak dimanfaatkan secara optimal untuk tujuan prediksi dan pencegahan. Padahal, data ini memiliki potensi besar untuk membantu dalam deteksi dini dan manajemen diabetes melalui model prediktif yang akurat.
@@ -114,29 +114,24 @@ Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dil
 
 - Teknik Data Preparation
 
-1. Analisis Variabel Kategorikal dan Numerikal:
-Variabel kategorikal dan numerikal diidentifikasi untuk memahami jenis data yang tersedia. Misalnya, variabel Outcome (target) merupakan variabel kategorikal dengan nilai 0 dan 1, sedangkan variabel numerikal seperti Glucose, BloodPressure, dan lainnya memiliki nilai numerik yang berbeda.
-
-
-2. Pemeriksaan dan Penanganan Missing Value:
+1. Pemeriksaan dan Penanganan Missing Value:
 Dilakukan pemeriksaan terhadap nilai yang hilang (missing values) pada dataset. Langkah-langkah yang dilakukan termasuk:
 Menghitung jumlah nilai yang hilang untuk setiap variabel.
-Memutuskan strategi penanganan nilai yang hilang, seperti imputasi menggunakan mean atau median, atau menghapus baris data yang memiliki nilai yang hilang tergantung pada distribusi data dan signifikansinya terhadap analisis.
+Memutuskan strategi penanganan nilai yang hilang, seperti imputasi menggunakan mean, median, dan menghapus baris data yang memiliki nilai yang hilang tergantung pada distribusi data dan signifikansinya terhadap analisis.
 
-3. Pemeriksaan Data Duplikat:
+2. Pemeriksaan Data Duplikat:
 Melakukan pemeriksaan terhadap adanya data duplikat dalam dataset. Data duplikat dapat mempengaruhi hasil analisis statistik dan model machine learning dengan cara yang tidak diinginkan. Dan pada data ini tidak ditemukan data duplikat. 
 
-4. Data Scaling 
+3. Data Scaling 
 Scaling atau normalisasi data dilakukan untuk memastikan bahwa semua variabel numerikal memiliki skala yang sama. Hal ini penting dalam proses pemodelan machine learning, terutama untuk algoritma yang sensitif terhadap skala data, seperti regresi linier, k-NN, dan neural networks. Pada Data ini digunakan MinMaxScaler dari sklearn digunakan untuk melakukan scaling data. Teknik ini mengubah nilai data sehingga berada dalam rentang tertentu, biasanya 0 hingga 1.
 
-5. Melakukan Split Train dan Test
+4. Melakukan Split Train dan Test
 Selanjutnya membagi dataset menjadi set pelatihan dan set pengujian. Pembagian ini dilakukan dengan rasio 85:15, di mana 85% data digunakan untuk pelatihan model dan 15% digunakan untuk pengujian model. Berikut adalah kode untuk pembagian data:
 ```sh
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.15, shuffle=True, random_state=42)
 ```
 
 Alasan Data Preparation
-- Analisis Variabel Kategorikal dan Numerikal: Memastikan pemahaman yang jelas tentang jenis data yang tersedia untuk mempersiapkan langkah-langkah preprocessing selanjutnya dengan tepat.
 
 - Pemeriksaan dan Penanganan Nilai yang Hilang: Menghindari bias dan mempertahankan integritas data dengan memastikan bahwa data yang hilang diisi dengan cara yang sesuai atau dihapus jika diperlukan.
 
@@ -158,41 +153,61 @@ AdaBoost Classifier
 XGBoost Classifier
 
 **Model Building**
+Sebelum menuju ke model, pada model building terdapat 3 hal yaitu input features, model, dan output. 
+Input Featurenya adalah kolom Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,BMI, DiabetesPedigreeFunction, dan Age. 
+
 Berikut adalah beberapa model machine learning yang digunakan untuk membangun model prediktif diabetes:
 
-Kelebihan dan Kekurangan Model
+Karakteristik Model
 1. Logistic Regression:
-Cara Kerja: Logistic Regression menggunakan fungsi logistik untuk memodelkan probabilitas suatu kejadian berdasarkan regresi linear. Ini sangat efektif untuk masalah klasifikasi biner.
+- Model menggunakan regresi linear untuk menggabungkan semua fitur menjadi satu nilai.
+- Fungsi logistik kemudian digunakan untuk mengubah nilai ini menjadi probabilitas.
+Output: Probabilitas bahwa pasien memiliki diabetes. Jika probabilitas ini lebih dari 0.5, model akan mengklasifikasikan pasien sebagai memiliki diabetes (1); jika kurang dari 0.5, model akan mengklasifikasikan pasien sebagai tidak memiliki diabetes (0).
 Library yang Digunakan: sklearn.linear_model
 Kelebihan: Sederhana dan mudah diinterpretasikan, bekerja dengan baik ketika hubungan antara fitur dan target adalah linear.
 Kekurangan: Tidak mampu menangkap hubungan non-linear antara fitur dan target.
 
 2. K-Neighbors Classifier:
-Cara Kerja: K-Neighbors Classifier (KNN) menentukan kelas dari titik data baru berdasarkan mayoritas kelas dari k tetangga terdekat dalam ruang fitur.
+- Model menyimpan semua titik data dalam ruang fitur.
+Ketika prediksi diperlukan, model mencari k tetangga terdekat (k adalah hyperparameter) dari pasien yang akan diprediksi.
+- Model menentukan kelas berdasarkan mayoritas kelas dari tetangga terdekat tersebut.
+Output: Kelas prediksi (0 atau 1) berdasarkan mayoritas dari k tetangga terdekat.
 Library yang Digunakan: sklearn.neighbors
 Kelebihan: Mudah diimplementasikan, non-parametrik dan non-linear.
 Kekurangan: Membutuhkan banyak memori dan waktu komputasi untuk dataset besar, performa menurun dengan fitur yang banyak (curse of dimensionality).
 
 3. Decision Tree Classifier:
-Cara Kerja: Decision Tree mempartisi ruang fitur menjadi daerah yang memiliki label yang sama dengan membuat pohon keputusan dari fitur-fitur yang membagi data dengan cara yang paling informatif.
+- Model mempartisi ruang fitur menjadi beberapa daerah berdasarkan nilai fitur yang memaksimalkan informasi (menggunakan gain informasi atau kriteria lain).
+- Setiap node dalam pohon keputusan mewakili keputusan berdasarkan fitur tertentu.
+- Proses ini berlanjut hingga mencapai node daun, yang mewakili kelas prediksi.
+Output: Kelas prediksi (0 atau 1) yang ditentukan oleh node daun.
 Library yang Digunakan: sklearn.tree
 Kelebihan: Mudah diinterpretasikan, mampu menangkap hubungan non-linear, tidak membutuhkan banyak pra-pemrosesan data.
 Kekurangan: Rentan terhadap overfitting, terutama pada dataset yang kecil.
 
 4. Random Forest Classifier:
-Cara Kerja: Random Forest membangun banyak pohon keputusan (decision trees) dan menggabungkan hasilnya untuk meningkatkan akurasi dan mengurangi overfitting.
+- Model membangun banyak pohon keputusan (decision trees) dari subset acak data dan fitur.
+- Setiap pohon memberikan prediksi berdasarkan partisi fitur yang mirip dengan Decision Tree.
+- Hasil akhir adalah voting mayoritas dari semua pohon.
+Output: Kelas prediksi (0 atau 1) berdasarkan voting mayoritas dari semua pohon keputusan.
 Library yang Digunakan: sklearn.ensemble
 Kelebihan: Mengurangi overfitting, mampu menangani dataset dengan fitur yang banyak, robust terhadap missing values.
 Kekurangan: Lebih kompleks dan membutuhkan lebih banyak waktu komputasi dibanding decision tree.
 
 5. AdaBoost Classifier:
-Cara Kerja: AdaBoost menggabungkan beberapa model lemah (misalnya, pohon keputusan sederhana) dengan memberi bobot lebih pada kesalahan dari model sebelumnya untuk meningkatkan akurasi keseluruhan.
+- Model dasar (misalnya, decision tree) dilatih pada data.
+- Kesalahan dari model ini digunakan untuk memberi bobot lebih pada data yang sulit diklasifikasikan.
+- Proses ini diulang beberapa kali, dengan setiap model baru mencoba memperbaiki kesalahan dari model sebelumnya.
+Output: Kelas prediksi (0 atau 1) berdasarkan voting dari semua model yang telah dilatih.
 Library yang Digunakan: sklearn.ensemble
 Kelebihan: Meningkatkan performa model dasar dengan menggabungkan beberapa model lemah, robust terhadap overfitting.
 Kekurangan: Rentan terhadap data outliers dan noise.
 
 6. XGBoost Classifier:
-Cara Kerja: XGBoost adalah algoritma boosting yang dioptimalkan untuk efisiensi dan kecepatan. Ini bekerja dengan membangun model secara iteratif dan memperbaiki kesalahan dari model sebelumnya.
+- Model dasar dilatih pada data.
+- Setiap iterasi mencoba memperbaiki kesalahan dari model sebelumnya dengan menambahkan model baru yang memprediksi sisa kesalahan.
+- Proses ini diulang hingga kesalahan diminimalkan atau jumlah iterasi maksimum tercapai.
+Output: Kelas prediksi (0 atau 1) berdasarkan kombinasi semua model yang dilatih.
 Library yang Digunakan: xgboost
 Kelebihan: Sangat efisien dan cepat, menangani missing values dengan baik, sering memberikan hasil terbaik dalam kompetisi.
 Kekurangan: Lebih kompleks untuk diimplementasikan dan disetel (tuning) dibandingkan model lain.
