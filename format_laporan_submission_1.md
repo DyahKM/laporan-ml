@@ -105,12 +105,61 @@ Kesimpulan: Meski perbedaan tekanan darah antara pasien diabetes dan non-diabete
 - Visualisasi Hubungan Antar Variabel:
 1. Menggunakan heatmap untuk melihat korelasi antar variabel.
 ![image](https://raw.githubusercontent.com/DyahKM/laporan-ml/main/heeatmap.png)
+
+Penjelasan Gambar: 
+- Kadar glukosa (Glucose) memiliki korelasi tertinggi dengan hasil diabetes (Outcome), menunjukkan bahwa kadar glukosa adalah faktor penting dalam memprediksi diabetes.
+- BMI dan Age juga memiliki korelasi yang cukup signifikan dengan Outcome, meskipun tidak sekuat Glucose.
+- Fitur-fitur lainnya memiliki korelasi yang lebih rendah dengan Outcome, menunjukkan bahwa mereka mungkin tidak sekuat prediktor diabetes dibandingkan dengan Glucose.
+- Beberapa fitur memiliki korelasi antar-fitur yang cukup signifikan, seperti antara SkinThickness dan Insulin, serta Pregnancies dan Age, menunjukkan hubungan yang lebih kompleks antara variabel-variabel ini.
+
 2. Mengidentifikasi distribusi data menggunakan histograms atau boxplots.
 ![image](https://raw.githubusercontent.com/DyahKM/laporan-ml/main/boxplot.png)
+
+Gambar di atas berisi tiga jenis plot untuk masing-masing variabel dalam dataset diabetes: histogram (dengan kurva KDE), boxplot, dan Q-Q plot. Berikut adalah penjelasan mengenai masing-masing plot:
+- Pregnancies
+Histogram: Distribusi menunjukkan banyak pasien memiliki 0 hingga beberapa kehamilan dengan penurunan frekuensi secara eksponensial.
+Boxplot: Mayoritas data berada dalam rentang 0-7, dengan beberapa outliers di atas 13.
+Q-Q Plot: Distribusi tidak sepenuhnya mengikuti distribusi normal, terlihat dari beberapa titik yang menyimpang dari garis merah.
+
+- Glucose:
+Histogram: Distribusi miring ke kanan dengan puncak sekitar nilai 100-150.
+Boxplot: Beberapa outliers terlihat di bagian atas, terutama di atas 200.
+Q-Q Plot: Ada penyimpangan dari normalitas, terutama di ekor kanan.
+
+- BloodPressure:
+Histogram: Distribusi normal dengan sedikit kemiringan ke kanan.
+Boxplot: Outliers terlihat di bagian atas dan bawah, tetapi sebagian besar data berkumpul di sekitar nilai tengah.
+Q-Q Plot: Distribusi menunjukkan penyimpangan dari normalitas, dengan beberapa titik menyimpang dari garis merah.
+
+- SkinThickness:
+Histogram: Distribusi miring ke kanan dengan puncak di sekitar nilai 20-30.
+Boxplot: Banyak outliers di bagian atas, menunjukkan distribusi yang tidak normal.
+Q-Q Plot: Distribusi menunjukkan penyimpangan signifikan dari normalitas.
+
+- Insulin:
+Histogram: Distribusi sangat miring ke kanan dengan puncak di sekitar nilai rendah.
+Boxplot: Banyak outliers terlihat, terutama di bagian atas.
+Q-Q Plot: Distribusi jauh dari normal, terlihat dari banyak titik yang menyimpang dari garis merah.
+
+- BMI:
+Histogram: Distribusi menunjukkan puncak di sekitar nilai 30-40 dengan penurunan frekuensi setelahnya.
+Boxplot: Beberapa outliers terlihat di bagian atas, tetapi sebagian besar data berada dalam rentang normal.
+Q-Q Plot: Distribusi tidak sepenuhnya normal, dengan beberapa penyimpangan di ekor.
+
+- DiabetesPedigreeFunction:
+Histogram: Distribusi sangat miring ke kanan dengan puncak di nilai rendah.
+Boxplot: Banyak outliers terlihat di bagian atas.
+Q-Q Plot: Distribusi jauh dari normal, dengan banyak penyimpangan dari garis merah.
+
+- Age:
+Histogram: Distribusi menunjukkan puncak di sekitar usia muda dengan penurunan frekuensi seiring bertambahnya usia.
+Boxplot: Beberapa outliers terlihat di bagian atas, tetapi sebagian besar data berada dalam rentang normal.
+Q-Q Plot: Distribusi tidak sepenuhnya normal, dengan beberapa penyimpangan di ekor.
+
 Dengan langkah-langkah ini, diharapkan dapat diperoleh pemahaman yang mendalam tentang karakteristik data dan faktor-faktor yang mempengaruhi risiko diabetes, yang selanjutnya akan digunakan untuk membangun model prediktif yang andal.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Pada bagian ini menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
 - Teknik Data Preparation
 
@@ -132,7 +181,6 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.15, shuffl
 ```
 
 Alasan Data Preparation
-
 - Pemeriksaan dan Penanganan Nilai yang Hilang: Menghindari bias dan mempertahankan integritas data dengan memastikan bahwa data yang hilang diisi dengan cara yang sesuai atau dihapus jika diperlukan.
 
 - Pemeriksaan Data Duplikat: Memastikan keakuratan analisis dan model yang dibangun dengan menghilangkan pengaruh data yang tidak diperlukan.
@@ -336,7 +384,7 @@ Dampak: Model Logistic Regression telah di-tuning untuk mencapai performa terbai
 
 ### Kesimpulan
 
-Model Logistic Regression menunjukkan kinerja yang baik dalam memprediksi apakah seseorang memiliki diabetes, dengan akurasi yang tinggi dan nilai precision dan recall yang memuaskan. Namun, ada ruang untuk perbaikan terutama dalam meningkatkan recall untuk kelas diabetes, yang akan membantu dalam menangkap lebih banyak kasus diabetes yang sebenarnya.
+Model Logistic Regression menunjukkan kinerja yang baik dalam memprediksi apakah seseorang memiliki diabetes, dengan akurasi yang tinggi dan nilai precision yang memuaskan. Namun, ada ruang untuk perbaikan terutama dalam meningkatkan recall untuk kelas diabetes, yang akan membantu dalam menangkap lebih banyak kasus diabetes yang sebenarnya.
 
 Pemilihan metrik evaluasi ini membantu dalam memahami kekuatan dan kelemahan model dalam berbagai aspek, dan memberikan dasar yang kuat untuk pengambilan keputusan lebih lanjut dalam pengembangan dan penyempurnaan model prediksi diabetes.
 
