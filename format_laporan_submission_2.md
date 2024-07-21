@@ -30,9 +30,11 @@ Berikut adalah beberapa masalah yang ditemui:
 ### Goals
 
 Tujuan dibuatnya proyek ini adalah: 
-1. Mengurangi Overload Informasi: Mengembangkan sistem rekomendasi yang dapat membantu pengguna menemukan film yang sesuai dengan selera mereka dengan lebih efisien, sehingga mengurangi waktu yang dibutuhkan untuk menelusuri dan memilih film.
+1. Mengurangi Overload Informasi:
+Mengembangkan sistem rekomendasi yang dapat membantu pengguna menemukan film yang sesuai dengan selera mereka dengan lebih efisien, sehingga mengurangi waktu yang dibutuhkan untuk menelusuri dan memilih film.
 
-2. Meningkatkan Akurasi Rekomendasi: Menggunakan model Singular Value Decomposition (SVD) untuk memberikan rekomendasi yang lebih akurat berdasarkan data rating pengguna, serta mengatasi tantangan data sparsity dan variabilitas preferensi.
+2. Mengatasi Tantangan Data Sparsity dan Variabilitas Preferensi:
+Menggunakan model Singular Value Decomposition (SVD) untuk memberikan rekomendasi yang akurat berdasarkan data rating pengguna, serta mengatasi tantangan data sparsity dan variabilitas preferensi.
 
 ### Solution statements
 1. Model Singular Value Decomposition (SVD): Menggunakan SVD untuk mengidentifikasi dan memanfaatkan fitur laten dalam data rating film. SVD dapat membantu dalam mengurangi dimensi data dan menemukan pola yang relevan untuk memprediksi rating film yang belum ditonton oleh pengguna. Dengan demikian, SVD dapat meningkatkan akurasi rekomendasi.
@@ -150,8 +152,6 @@ new_columns = [
 Penggabungan Data: Data rating digabungkan dengan data film berdasarkan movieId untuk mengaitkan rating dengan informasi film.
 - Membuat Tabel Pivot
 Pivot Table: Tabel pivot dibuat untuk menyusun data dalam format yang lebih terstruktur, dengan userId sebagai baris, movieId sebagai kolom, dan rating sebagai nilai. Tabel ini mempermudah analisis dan modelisasi.
-- Checking Missing Values and Duplicates Data
-Pemeriksaan Nilai yang Hilang dan Data Duplikat: Data diperiksa untuk nilai yang hilang dan data duplikat. Dalam kasus ini, tidak ditemukan nilai yang hilang atau data duplikat, sehingga data dianggap sudah bersih.
 
 - Split Train and Test 
 Melakukan split train/test 75/25 untuk mengukur akurasi. Selain itu juga, Split train/test “leave one out” untuk mengevaluasi rekomendasi top-N. 
@@ -256,19 +256,28 @@ Coverage: 0.965
 Diversity: 0.029
 Interpretasi: Tingkat coverage yang tinggi menunjukkan bahwa model mampu memberikan rekomendasi yang memenuhi kriteria minimum bagi sebagian besar pengguna. Namun, nilai diversity yang rendah menunjukkan bahwa rekomendasi cenderung kurang beragam.
 
+
+Mengatasi Tantangan Data Sparsity dan Variabilitas Preferensi
+1. Data Sparsity:
+Tantangan: Banyaknya data yang hilang atau tidak tersedia dalam dataset rating pengguna dan item, membuat prediksi menjadi lebih sulit.
+Solusi: Model SVD mampu mengatasi masalah ini dengan mendekomposisi matriks rating yang jarang menjadi beberapa matriks yang lebih kecil dan padat. Dengan menggunakan faktor-faktor laten, SVD dapat mengisi nilai rating yang hilang berdasarkan pola yang terdeteksi dalam data yang tersedia.
+Variabilitas Preferensi:
+
+2. Tantangan: Preferensi pengguna yang bervariasi membuat model harus mampu menyesuaikan rekomendasi sesuai dengan karakteristik dan selera unik masing-masing pengguna.
+Solusi: SVD, melalui faktor-faktor laten, mampu menangkap variasi preferensi pengguna dengan mengidentifikasi dimensi-dimensi laten yang mempengaruhi penilaian film oleh pengguna. Hal ini memungkinkan model untuk membuat prediksi yang lebih akurat dan personal.
 Dampak Terhadap Business Understanding
-- Menjawab Problem Statement:
-Problem Statement: Membangun sistem rekomendasi yang dapat meningkatkan keterlibatan pengguna dengan memberikan rekomendasi film yang relevan dan personal.
+Menjawab Problem Statement:
+
+3. Problem Statement: Membangun sistem rekomendasi yang dapat meningkatkan keterlibatan pengguna dengan memberikan rekomendasi film yang relevan dan personal.
 Evaluasi: Berdasarkan hasil evaluasi, model SVD menunjukkan performa yang baik dalam hal akurasi prediktif tetapi kurang optimal dalam memberikan rekomendasi yang benar-benar relevan kepada pengguna.
+Mencapai Goals yang Diharapkan:
 
-- Mencapai Goals yang Diharapkan:
-Goals: Meningkatkan keterlibatan pengguna dan kepuasan dengan memberikan rekomendasi film yang sesuai dengan preferensi mereka.
-Evaluasi: Meskipun model dapat memprediksi rating dengan akurasi yang baik, kualitas rekomendasi top-N masih perlu ditingkatkan. Hit Rate dan ARHR yang rendah menunjukkan bahwa pengguna tidak sering menemukan rekomendasi film yang benar-benar mereka sukai dalam daftar top-N, yang dapat mengurangi tingkat keterlibatan dan kepuasan pengguna.
+4. Goals: Meningkatkan keterlibatan pengguna dan kepuasan dengan memberikan rekomendasi film yang sesuai dengan preferensi mereka serta mengatasi tantangan data sparsity dan variabilitas preferensi.
+Evaluasi: Meskipun model dapat memprediksi rating dengan akurasi yang baik, kualitas rekomendasi top-N masih perlu ditingkatkan. Hit Rate dan ARHR yang rendah menunjukkan bahwa pengguna tidak sering menemukan rekomendasi film yang benar-benar mereka sukai dalam daftar top-N, yang dapat mengurangi tingkat keterlibatan dan kepuasan pengguna. Namun, model berhasil mengatasi masalah data sparsity dan variabilitas preferensi dengan cara yang lebih akurat dibandingkan model baseline.
 
-- Dampak Solusi yang Direncanakan:
-Solusi Statement: Menggunakan model collaborative filtering berbasis SVD untuk memberikan rekomendasi yang personal.
+5. Dampak Solusi yang Direncanakan:
+Solusi Statement: Menggunakan model collaborative filtering berbasis SVD untuk memberikan rekomendasi yang lebih akurat berdasarkan faktor-faktor laten serta mengatasi tantangan data sparsity dan variabilitas preferensi.
 Dampak: Meskipun model memberikan beberapa rekomendasi yang relevan, masih ada ruang untuk peningkatan dalam hal diversifikasi dan relevansi rekomendasi. Meningkatkan nilai diversity dapat membantu memberikan pilihan film yang lebih beragam kepada pengguna, yang pada gilirannya dapat meningkatkan kepuasan pengguna dan keterlibatan mereka dengan platform.
 
-
 Kesimpulan Keseluruhan
-Secara keseluruhan, model SVD yang dibangun telah menunjukkan performa yang baik dalam hal akurasi prediksi tetapi kurang optimal dalam memberikan rekomendasi top-N yang relevan dan beragam. Untuk mencapai tujuan meningkatkan keterlibatan dan kepuasan pengguna, perlu dilakukan peningkatan lebih lanjut pada aspek diversifikasi dan relevansi rekomendasi. Strategi seperti hybrid recommender systems atau penggunaan teknik-teknik tambahan seperti context-aware recommendations dapat dipertimbangkan untuk mengatasi kelemahan yang ada dan mencapai tujuan bisnis secara lebih efektif.
+Secara keseluruhan, model SVD yang dibangun telah menunjukkan performa yang baik dalam hal akurasi prediksi dan berhasil mengatasi tantangan data sparsity dan variabilitas preferensi pengguna. Namun, untuk mencapai tujuan meningkatkan keterlibatan dan kepuasan pengguna, perlu dilakukan peningkatan lebih lanjut pada aspek diversifikasi dan relevansi rekomendasi. Strategi seperti hybrid recommender systems atau penggunaan teknik-teknik tambahan seperti context-aware recommendations dapat dipertimbangkan untuk mengatasi kelemahan yang ada dan mencapai tujuan bisnis secara lebih efektif.
