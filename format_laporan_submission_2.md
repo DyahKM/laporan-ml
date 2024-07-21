@@ -44,9 +44,10 @@ Tujuan dibuatnya proyek ini adalah:
 Dengan pendekatan ini, proyek ini bertujuan untuk mengatasi pernyataan masalah yang ada dan mencapai tujuan yang telah ditetapkan, sehingga meningkatkan pengalaman menonton film bagi pengguna.
 
 ## Data Understanding
-Dataset yang digunakan adalah tentang dataset diabetes yang dapat didownload di [MovieLens-100K](https://www.kaggle.com/datasets/prajitdatta/movielens-100k-dataset/data). Pada database itu memiliki banyak sekali data pendukung, akan tetapi pada proyek ini hanya fokus pada 2 dataest yaitu 
+Dataset yang digunakan adalah tentang dataset dunia film yang dapat didownload di [MovieLens-100K](https://www.kaggle.com/datasets/prajitdatta/movielens-100k-dataset/data). Pada database itu memiliki banyak sekali data pendukung, akan tetapi pada proyek ini hanya fokus pada 2 dataset yaitu 
 
-1. u.item: Berisi informasi tentang film. Format data adalah sebagai berikut:
+1. u.item: Berisi informasi tentang film. Dataset ini memiliki 722 Data yang sudah bersih dimana tidak terdapat data Null ataupun Data Duplikat. 
+Format data adalah sebagai berikut:
 movie id: ID unik film.
 movie title: Judul film.
 release date: Tanggal rilis film.
@@ -56,7 +57,7 @@ unknown: Kategori genre yang tidak diketahui.
 Action, Adventure, Animation, Children's, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War, Western: Genre film. Setiap kolom genre adalah biner (1 jika film termasuk genre tersebut, 0 jika tidak).
 Kolom-kolom genre adalah fitur yang penting untuk analisis konten dan personalisasi rekomendasi.
 
-2. u.data: Berisi data rating film oleh pengguna. Format data adalah sebagai berikut:
+2. u.data: Berisi data rating film oleh pengguna. Data ini berisi 100000 rating oleh 943 user pada 1682 item. Setiap pengguna telah memberi peringkat setidaknya 20 film. Pengguna dan item diberi nomor secara berurutan dari 1. Data diurutkan secara acak. Ini adalah daftar yang dipisahkan tab untuk id pengguna, id item, peringkat, dan stempel waktu. Tidak terdapat data Null ataupun Data Duplikat pada data ini. Format data adalah sebagai berikut:
 user id: ID unik pengguna.
 item id: ID film.
 rating: Rating yang diberikan pengguna (dalam rentang 1 hingga 5).
@@ -239,22 +240,35 @@ Tentu, berikut adalah ringkasan evaluasi model rekomendasi yang telah dilakukan:
 - **Diversity**: 0.029
 
 ### 3. Kesimpulan dari Tiap Hasil
+- Akurasi Prediktif:
+RMSE (Root Mean Squared Error): 0.943
+MAE (Mean Absolute Error): 0.743
+Interpretasi: Nilai RMSE dan MAE yang lebih rendah menunjukkan bahwa model memiliki kemampuan prediksi yang baik dalam memprediksi rating film oleh pengguna. Namun, nilai ini juga menunjukkan bahwa ada sedikit perbedaan antara rating aktual dan rating yang diprediksi.
 
-- **MAE** dan **RMSE**: 
-  - Nilai MAE (0.743) dan RMSE (0.943) menunjukkan bahwa model memiliki akurasi prediksi yang relatif baik. MAE yang lebih rendah dan RMSE yang lebih rendah menunjukkan kesalahan prediksi yang kecil.
+- Evaluasi Top-N Rekomendasi:
+Hit Rate (HR): 0.038
+Cumulative Hit Rate (cHR): 0.038
+Average Reciprocal Hit Rank (ARHR): 0.012
+Interpretasi: Nilai HR dan cHR yang rendah menunjukkan bahwa model jarang merekomendasikan film yang benar-benar disukai oleh pengguna dalam top-N rekomendasi. Nilai ARHR yang rendah menunjukkan bahwa rekomendasi yang benar sering kali berada di peringkat yang lebih rendah dalam daftar top-N.
 
-- **Hit Rate (HR)** dan **Cumulative Hit Rate (cHR)**:
-  - Nilai HR (0.038) dan cHR (0.038) menunjukkan bahwa frekuensi rekomendasi yang benar-benar direkomendasikan oleh model relatif rendah. Hal ini mengindikasikan bahwa model tidak sering berhasil merekomendasikan item yang benar-benar relevan untuk pengguna.
+- Evaluasi Lainnya:
+Coverage: 0.965
+Diversity: 0.029
+Interpretasi: Tingkat coverage yang tinggi menunjukkan bahwa model mampu memberikan rekomendasi yang memenuhi kriteria minimum bagi sebagian besar pengguna. Namun, nilai diversity yang rendah menunjukkan bahwa rekomendasi cenderung kurang beragam.
 
-- **Average Reciprocal Hit Rank (ARHR)**:
-  - Nilai ARHR (0.012) menunjukkan bahwa meskipun model kadang-kadang merekomendasikan item yang benar, peringkat dari rekomendasi tersebut tidak selalu tinggi. Ini berarti rekomendasi yang baik mungkin tidak selalu ditempatkan di posisi teratas dalam daftar rekomendasi.
+Dampak Terhadap Business Understanding
+- Menjawab Problem Statement:
+Problem Statement: Membangun sistem rekomendasi yang dapat meningkatkan keterlibatan pengguna dengan memberikan rekomendasi film yang relevan dan personal.
+Evaluasi: Berdasarkan hasil evaluasi, model SVD menunjukkan performa yang baik dalam hal akurasi prediktif tetapi kurang optimal dalam memberikan rekomendasi yang benar-benar relevan kepada pengguna.
 
-- **User Coverage**:
-  - Nilai User Coverage (0.965) menunjukkan bahwa model mampu memberikan rekomendasi yang relevan untuk sebagian besar pengguna. Ini menunjukkan cakupan yang baik di antara pengguna.
+- Mencapai Goals yang Diharapkan:
+Goals: Meningkatkan keterlibatan pengguna dan kepuasan dengan memberikan rekomendasi film yang sesuai dengan preferensi mereka.
+Evaluasi: Meskipun model dapat memprediksi rating dengan akurasi yang baik, kualitas rekomendasi top-N masih perlu ditingkatkan. Hit Rate dan ARHR yang rendah menunjukkan bahwa pengguna tidak sering menemukan rekomendasi film yang benar-benar mereka sukai dalam daftar top-N, yang dapat mengurangi tingkat keterlibatan dan kepuasan pengguna.
 
-- **Diversity**:
-  - Nilai Diversity (0.029) menunjukkan bahwa rekomendasi yang diberikan oleh model kurang beragam. Rekomendasi model cenderung memiliki kesamaan tinggi, menunjukkan bahwa model mungkin tidak memberikan pilihan yang sangat bervariasi.
+- Dampak Solusi yang Direncanakan:
+Solusi Statement: Menggunakan model collaborative filtering berbasis SVD untuk memberikan rekomendasi yang personal.
+Dampak: Meskipun model memberikan beberapa rekomendasi yang relevan, masih ada ruang untuk peningkatan dalam hal diversifikasi dan relevansi rekomendasi. Meningkatkan nilai diversity dapat membantu memberikan pilihan film yang lebih beragam kepada pengguna, yang pada gilirannya dapat meningkatkan kepuasan pengguna dan keterlibatan mereka dengan platform.
 
-### 4. Kesimpulan Keseluruhan
 
-Model rekomendasi yang dibangun menggunakan Singular Value Decomposition (SVD) menunjukkan hasil yang baik dalam hal akurasi prediksi dan cakupan pengguna. MAE dan RMSE yang rendah menunjukkan prediksi yang cukup akurat. Namun, Hit Rate dan Cumulative Hit Rate yang rendah, serta ARHR yang juga rendah, menunjukkan bahwa meskipun model dapat merekomendasikan item, kualitas dan ranking dari rekomendasi tersebut perlu diperbaiki. User Coverage yang tinggi menunjukkan bahwa model cukup baik dalam memberikan rekomendasi kepada sebagian besar pengguna, tetapi Diversity yang rendah menunjukkan bahwa rekomendasi yang diberikan kurang bervariasi. Oleh karena itu, meskipun model SVD ini efektif dalam memberikan prediksi yang akurat dan luas, ada ruang untuk perbaikan terutama dalam hal keragaman dan kualitas ranking rekomendasi.
+Kesimpulan Keseluruhan
+Secara keseluruhan, model SVD yang dibangun telah menunjukkan performa yang baik dalam hal akurasi prediksi tetapi kurang optimal dalam memberikan rekomendasi top-N yang relevan dan beragam. Untuk mencapai tujuan meningkatkan keterlibatan dan kepuasan pengguna, perlu dilakukan peningkatan lebih lanjut pada aspek diversifikasi dan relevansi rekomendasi. Strategi seperti hybrid recommender systems atau penggunaan teknik-teknik tambahan seperti context-aware recommendations dapat dipertimbangkan untuk mengatasi kelemahan yang ada dan mencapai tujuan bisnis secara lebih efektif.
